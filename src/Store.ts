@@ -56,6 +56,6 @@ export class Store {
   // replaceReducer(nextReducer: Function) {}
 }
 
-export default function createStore(reducer: Function, preloadState?: any) {
+export function createStore(reducer: Function, preloadState?: any) {
   return new Store(reducer, preloadState);
 }
