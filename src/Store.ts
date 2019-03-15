@@ -18,7 +18,7 @@ export class Store {
     if (preloadState) {
       this.currentState = preloadState;
     } else {
-      this.currentState = this.currentReducer(initAction);
+      this.currentState = this.currentReducer(undefined, initAction);
     }
     this.currentListeners = [];
   }
@@ -34,7 +34,7 @@ export class Store {
   }
 
   dispatch(action: Action) {
-    this.currentState = this.currentReducer(action);
+    this.currentState = this.currentReducer(this.currentState, action);
     this.notice();
   }
 
