@@ -20,6 +20,7 @@ export class Store {
     } else {
       this.currentState = this.currentReducer(initAction);
     }
+    this.currentListeners = [];
   }
 
   private currentState: any;

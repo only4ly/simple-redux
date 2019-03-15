@@ -14,9 +14,7 @@ export function combineReducer(reducers: Object) {
         throw 'reducer must be a function';
       }
     }
-    return Object.keys(reducers).reduce(
-      (state, key) => ({ ...state, [key]: reducers[key](action) }),
-      {}
-    );
+
+    return state;
   };
 }
