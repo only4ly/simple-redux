@@ -21,6 +21,7 @@ export class Store {
       this.currentState = this.currentReducer(undefined, initAction);
     }
     this.currentListeners = [];
+    this.dispatch = this.dispatch.bind(this);
   }
 
   private currentState: any;
