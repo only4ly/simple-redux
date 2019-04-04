@@ -13,6 +13,10 @@ const initAction: Action = {
 };
 
 export class Store {
+  private currentState: any;
+  private currentListeners: Function[];
+  private currentReducer: Function;
+
   constructor(reducer: Function, preloadState?: any) {
     this.currentReducer = reducer;
     if (preloadState) {
@@ -23,10 +27,6 @@ export class Store {
     this.currentListeners = [];
     this.dispatch = this.dispatch.bind(this);
   }
-
-  private currentState: any;
-  private currentListeners: Function[];
-  private currentReducer: Function;
 
   private notice() {
     this.currentListeners.forEach(listener => {
@@ -54,6 +54,8 @@ export class Store {
   getState(): any {
     return this.currentState;
   }
+
+  applayMiddleware(): void {}
 
   // replaceReducer(nextReducer: Function) {}
 }
